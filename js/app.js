@@ -1,15 +1,18 @@
-// Liga a tela à API: cards e janela de detalhes.
+// Liga a tela à API: busca, cards e janela de detalhes.
 const $ = (seletor, dentro = document) => dentro.querySelector(seletor);
 const clonar = (modelo) => $(modelo).content.firstElementChild.cloneNode(true);
 
+const campos = $("#busca").elements;
 const situacao = $("#situacao");
 const prateleira = $("#prateleira");
+const vazio = $("#vazio");
 const falha = $("#falha");
 const janela = $("#detalhes");
 
 const dinheiro = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "USD" });
 const decimal = new Intl.NumberFormat("pt-BR", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
 const pedidos = {};
+let espera;
 
 // Cancela o pedido anterior do mesmo tipo, para uma resposta atrasada não trocar a tela.
 function novoPedido(tipo) {
@@ -56,17 +59,26 @@ function criarCard(produto) {
   return card;
 }
 
-async function carregar() {
+async function consultar() {
+  clearTimeout(espera);
   const sinal = novoPedido("lista");
+  const alvo = traduzir(campos.termo.value);
 
+  vazio.hidden = true;
   falha.hidden = true;
   situacao.textContent = "Buscando produtos…";
   prateleira.replaceChildren(...Array.from({ length: Api.LIMITE }, () => clonar("#modelo-vazio")));
 
   try {
-    const { produtos, total } = await Api.listar(sinal);
+    let resultado;
+    if (!alvo) resultado = await Api.listar(sinal);
+    else if (Object.hasOwn(CATEGORIAS, alvo)) resultado = await Api.porCategoria(alvo, sinal);
+    else resultado = await Api.buscar(alvo, sinal);
+
+    const { produtos, total } = resultado;
     prateleira.replaceChildren(...produtos.map(criarCard));
     situacao.textContent = `Produtos na prateleira: ${produtos.length} de ${total}`;
+    vazio.hidden = produtos.length > 0;
   } catch (erro) {
     if (sinal.aborted) return;
     prateleira.replaceChildren();
@@ -92,6 +104,26 @@ async function abrirDetalhes(id) {
   }
 }
 
-$("button", falha).addEventListener("click", carregar);
+$("#busca").addEventListener("submit", (evento) => {
+  evento.preventDefault();
+  consultar();
+});
 
-carregar();
+// Espera a pessoa parar de digitar para não fazer um pedido por letra.
+campos.termo.addEventListener("input", () => {
+  clearTimeout(espera);
+  espera = setTimeout(consultar, 400);
+});
+
+// Botões com data-busca (sugestões, carrossel e vitrine) fazem uma busca pronta.
+document.addEventListener("click", ({ target }) => {
+  const atalho = target.closest("[data-busca]");
+  if (!atalho) return;
+  campos.termo.value = atalho.dataset.busca;
+  consultar();
+  $("#produtos").scrollIntoView();
+});
+
+$("button", falha).addEventListener("click", consultar);
+
+consultar();
