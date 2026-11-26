@@ -154,6 +154,80 @@ button { border: 0; font: inherit; cursor: pointer; }
   .topo-grade { grid-template-columns: 1fr 1.05fr; align-items: end; gap: 40px; }
 }
 
+/* Carrossel */
+
+.carrossel { margin-top: 32px; }
+
+.slides {
+  display: flex;
+  overflow-x: auto;
+  border-radius: 28px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.slide {
+  display: grid;
+  flex: 0 0 100%;
+  align-items: center;
+  gap: 20px;
+  padding: 28px 24px;
+  background: var(--cor);
+  scroll-snap-align: start;
+}
+
+.slide h2 { font-size: clamp(1.75rem, 4vw, 2.75rem); font-weight: 850; line-height: 1.05; letter-spacing: -0.02em; }
+.slide p { max-width: 32ch; margin-block: 8px 20px; font-size: 1.125rem; }
+.slide .botao { background: var(--tinta); color: var(--papel); }
+.slide .botao:hover { background: var(--azul); }
+
+.slide img {
+  justify-self: center;
+  width: auto;
+  height: 200px;
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+/* A foto entra subindo quando o slide aparece. */
+.slide:not(.ativo) img { opacity: 0; transform: translateY(32px) scale(0.9); }
+
+.controles { display: flex; align-items: center; gap: 8px; margin-top: 12px; }
+
+.seta {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--neutro);
+  color: var(--tinta);
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.seta:hover { background: var(--azul); color: var(--papel); }
+
+.pontos { display: flex; }
+.pontos button { width: 30px; height: 44px; background: none; }
+
+.pontos button::before {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin: auto;
+  border-radius: 999px;
+  background: #b9bfdf;
+  transition: width 0.3s;
+}
+
+.pontos [aria-current="true"]::before { width: 24px; background: var(--tinta); }
+.pausa { margin-left: auto; }
+
+@media (min-width: 700px) {
+  .carrossel { margin-top: 48px; }
+  .slide { grid-template-columns: 1.2fr 1fr; min-height: 360px; padding: 40px 56px; }
+  .slide img { height: 280px; }
+}
+
 /* Cards */
 
 .situacao { margin-block: 24px 16px; font-size: 1.125rem; font-weight: 650; }

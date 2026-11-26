@@ -17,6 +17,7 @@
       <div class="barra">
         <p class="logo">Gôndola</p>
         <nav aria-label="Principal">
+          <a href="#destaques">Destaques</a>
           <a href="#produtos">Produtos</a>
           <a href="#sobre">Sobre</a>
         </nav>
@@ -33,6 +34,54 @@
       </div>
     </div>
   </header>
+
+  <section id="destaques" class="carrossel largura" aria-roledescription="carrossel" aria-label="Destaques">
+    <div class="slides">
+      <article class="slide" data-cor="lilas" aria-label="1 de 4">
+        <div class="slide-texto">
+          <h2>Perfumes para presentear</h2>
+          <p>Fragrâncias femininas e masculinas com desconto.</p>
+          <button type="button" class="botao" data-busca="perfume">Ver perfumes</button>
+        </div>
+        <img src="img/perfume.webp" alt="" width="166" height="480">
+      </article>
+      <article class="slide" data-cor="laranja" aria-label="2 de 4">
+        <div class="slide-texto">
+          <h2>Bolsas para o dia a dia</h2>
+          <p>Modelos de mão e de ombro, em couro e tecido.</p>
+          <button type="button" class="botao" data-busca="bolsa">Ver bolsas</button>
+        </div>
+        <img src="img/bolsa.webp" alt="" width="409" height="480">
+      </article>
+      <article class="slide" data-cor="mel" aria-label="3 de 4">
+        <div class="slide-texto">
+          <h2>Casa com cara nova</h2>
+          <p>Vasos, luminárias e enfeites para decorar.</p>
+          <button type="button" class="botao" data-busca="decoração">Ver decoração</button>
+        </div>
+        <img src="img/planta.webp" alt="" width="480" height="462">
+      </article>
+      <article class="slide" data-cor="agua" aria-label="4 de 4">
+        <div class="slide-texto">
+          <h2>Hora de se mexer</h2>
+          <p>Bolas, raquetes e acessórios para esportes.</p>
+          <button type="button" class="botao" data-busca="esporte">Ver esportes</button>
+        </div>
+        <img src="img/raquete.webp" alt="" width="154" height="480">
+      </article>
+    </div>
+    <div class="controles">
+      <button type="button" class="seta anterior" aria-label="Destaque anterior">‹</button>
+      <div class="pontos">
+        <button type="button" aria-label="Destaque 1"></button>
+        <button type="button" aria-label="Destaque 2"></button>
+        <button type="button" aria-label="Destaque 3"></button>
+        <button type="button" aria-label="Destaque 4"></button>
+      </div>
+      <button type="button" class="seta proximo" aria-label="Próximo destaque">›</button>
+      <button type="button" class="botao pausa">Pausar</button>
+    </div>
+  </section>
 
   <main id="produtos" class="largura">
     <p id="situacao" class="situacao" role="status"></p>
@@ -121,5 +170,6 @@
   <script src="js/api.js"></script>
   <script src="js/dados.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/carrossel.js"></script>
 </body>
 </html>
