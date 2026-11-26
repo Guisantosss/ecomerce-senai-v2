@@ -1,5 +1,12 @@
 # Histórico de versões
 
+## 0.3.0: Epic 03 (26/11/2026)
+
+- Cabeçalho com menu e chamada.
+- Rodapé com projeto e equipe.
+- Breakpoints para celular, tablet e computador.
+- Cores do tema do site.
+
 ## 0.2.0: Epic 02 (26/11/2026)
 
 - Teste da API de produtos.
