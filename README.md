@@ -13,3 +13,7 @@ O trabalho está dividido em epics. Cada epic vira uma versão.
 | 03 | Cabeçalho e rodapé |
 | 04 | Carrossel, busca e impacto visual |
 | 05 | Faixa de benefícios e filtro por categoria |
+
+## Como contribuir
+
+O projeto usa git-flow. Leia [docs/git-flow.md](docs/git-flow.md) antes do primeiro commit.
