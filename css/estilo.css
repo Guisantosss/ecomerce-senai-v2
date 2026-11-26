@@ -95,7 +95,7 @@ button { border: 0; font: inherit; cursor: pointer; }
 
 .barra a:hover { background: rgb(255 255 255 / 0.16); }
 
-.topo-grade { display: grid; gap: 28px; }
+.topo-grade { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; }
 .chamada { padding-top: 16px; }
 
 .topo h1 {
@@ -150,6 +150,7 @@ button { border: 0; font: inherit; cursor: pointer; }
 .nicho {
   display: flex;
   flex: 1;
+  min-width: 0;
   align-items: flex-end;
   justify-content: center;
   height: 100%;
