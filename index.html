@@ -99,6 +99,10 @@
   </section>
   
   <main id="produtos" class="largura">
+     <fieldset id="categorias" class="categorias">
+      <legend class="so-leitor">Categoria</legend>
+      <label class="categoria"><input id="cat-tudo" type="radio" name="categoria" value="" form="busca" checked><span>Tudo</span></label>
+    </fieldset>
     <p id="situacao" class="situacao" role="status"></p>
     <ul id="prateleira" class="prateleira"></ul>
 
@@ -149,6 +153,10 @@
     <div id="detalhes-corpo"></div>
   </dialog>
 
+  <template id="modelo-categoria">
+    <label class="categoria"><input type="radio" name="categoria" form="busca"><span></span></label>
+  </template>
+  
   <template id="modelo-vazio"><li class="card-vazio"></li></template>
 
   <template id="modelo-card">

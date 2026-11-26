@@ -62,7 +62,8 @@ function criarCard(produto) {
 async function consultar() {
   clearTimeout(espera);
   const sinal = novoPedido("lista");
-  const alvo = traduzir(campos.termo.value);
+  if (campos.termo.value.trim()) campos["cat-tudo"].checked = true;
+  const alvo = traduzir(campos.termo.value) || campos.categoria.value;
 
   vazio.hidden = true;
   falha.hidden = true;
@@ -126,4 +127,18 @@ document.addEventListener("click", ({ target }) => {
 
 $("button", falha).addEventListener("click", consultar);
 
-consultar();
+for (const [valor, { nome, cor }] of Object.entries(CATEGORIAS)) {
+  const opcao = clonar("#modelo-categoria");
+  const radio = $("input", opcao);
+  opcao.dataset.cor = cor;
+  radio.id = `cat-${valor}`;
+  radio.value = valor;
+  $("span", opcao).textContent = nome;
+  $("#categorias").append(opcao);
+}
+
+$("#categorias").addEventListener("click", ({ target }) => {
+  if (!target.matches("input")) return;
+  campos.termo.value = "";
+  consultar();
+});
