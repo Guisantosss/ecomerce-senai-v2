@@ -12,11 +12,24 @@
   <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
-  <header class="largura">
-    <h1 class="logo">Gôndola</h1>
+  <header class="topo">
+    <div class="largura">
+      <div class="barra">
+        <p class="logo">Gôndola</p>
+        <nav aria-label="Principal">
+          <a href="#produtos">Produtos</a>
+          <a href="#sobre">Sobre</a>
+        </nav>
+      </div>
+      <div class="topo-grade">
+        <div class="chamada">
+          <h1>Do batom ao sofá, tudo na mesma prateleira.</h1>
+        </div>
+      </div>
+    </div>
   </header>
 
-  <main class="largura">
+  <main id="produtos" class="largura">
     <p id="situacao" class="situacao" role="status"></p>
     <ul id="prateleira" class="prateleira"></ul>
 
@@ -26,6 +39,32 @@
       <button type="button" class="botao">Tentar de novo</button>
     </section>
   </main>
+
+  <footer id="sobre" class="rodape">
+    <div class="largura rodape-grade">
+      <div>
+        <p class="logo">Gôndola</p>
+        <p>Catálogo de estudo feito com HTML, CSS e JavaScript puro.</p>
+      </div>
+      <div>
+        <h2>Projeto</h2>
+        <ul>
+          <li><a href="https://github.com/Guisantosss/ecomerce-senai-v2">Código no GitHub</a></li>
+          <li><a href="https://dummyjson.com/docs/products">API DummyJSON</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Equipe</h2>
+        <ul>
+          <li>G Santos</li>
+          <li>Amaral</li>
+        </ul>
+      </div>
+    </div>
+    <div class="largura rodape-base">
+      <p>Produtos fictícios, com preços em dólar. Site na versão 0.3.0.</p>
+    </div>
+  </footer>
 
   <dialog id="detalhes" class="detalhes" aria-label="Detalhes do produto" closedby="any">
     <form method="dialog"><button class="fechar" aria-label="Fechar">×</button></form>
