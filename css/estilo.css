@@ -103,6 +103,43 @@ button { border: 0; font: inherit; cursor: pointer; }
   text-wrap: balance;
 }
 
+.busca {
+  display: flex;
+  max-width: 520px;
+  margin-top: 24px;
+  padding: 6px;
+  border-radius: 18px;
+  background: var(--papel);
+}
+
+.busca:focus-within { outline: 3px solid var(--amarelo); outline-offset: 3px; }
+
+.busca input {
+  flex: 1;
+  min-width: 0;
+  padding-inline: 14px;
+  border: 0;
+  outline: 0;
+  box-shadow: none;
+  background: none;
+  color: var(--tinta);
+  font: inherit;
+  font-size: 1.125rem;
+}
+
+.busca input::placeholder { color: var(--suave); }
+
+.busca button {
+  min-height: 48px;
+  padding-inline: 22px;
+  border-radius: 13px;
+  background: var(--amarelo);
+  color: var(--tinta);
+  font-weight: 700;
+}
+
+.busca button:hover { background: var(--tinta); color: var(--papel); }
+
 @media (min-width: 700px) {
   .barra { padding-block: 24px; }
   .barra a { padding-inline: 16px; }
