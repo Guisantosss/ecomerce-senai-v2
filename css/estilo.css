@@ -73,6 +73,36 @@ button { border: 0; font: inherit; cursor: pointer; }
   :root { --borda: 28px; }
 }
 
+/* Cabeçalho */
+
+.topo { border-bottom: 14px solid var(--amarelo); background: var(--azul); color: var(--papel); }
+.topo :focus-visible { outline-color: var(--amarelo); box-shadow: none; }
+
+.barra { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 16px; }
+.barra nav { display: flex; gap: 4px; }
+
+.barra a {
+  padding: 8px 12px;
+  border-radius: 999px;
+  color: var(--papel);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.barra a:hover { background: rgb(255 255 255 / 0.16); }
+
+.topo-grade { display: grid; gap: 28px; }
+.chamada { padding-block: 16px 40px; }
+
+.topo h1 {
+  max-width: 14ch;
+  font-size: clamp(2.25rem, 5.4vw, 4.25rem);
+  font-weight: 850;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
 /* Cards */
 
 .situacao { margin-block: 24px 16px; font-size: 1.125rem; font-weight: 650; }
