@@ -61,7 +61,7 @@ async function carregar() {
 
   falha.hidden = true;
   situacao.textContent = "Buscando produtos…";
-  prateleira.replaceChildren(...Array.from({ length: 8 }, () => clonar("#modelo-vazio")));
+  prateleira.replaceChildren(...Array.from({ length: Api.LIMITE }, () => clonar("#modelo-vazio")));
 
   try {
     const { produtos, total } = await Api.listar(sinal);

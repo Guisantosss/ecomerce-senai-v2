@@ -15,16 +15,17 @@
 
 | Consulta | Endereço |
 |---|---|
-| Lista | `/products` |
+| Lista | `/products?limit=20` |
 | Por código | `/products/1` |
 
 ## Casos testados
 
 | Caso | Esperado |
 |---|---|
-| Lista inicial | Produtos com os campos do card |
+| Lista inicial | 20 produtos, com os campos do card |
 | Código 1 | Produto 1, com os campos dos detalhes |
 | Código 99999 | Erro 404 com mensagem clara |
+| API manda 30 produtos | Site usa 20 |
 | Sem internet | Mensagem de erro clara |
 | API lenta demais | Mensagem própria |
 

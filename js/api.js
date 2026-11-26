@@ -1,6 +1,7 @@
 // Consultas à API de produtos. Não mexe na tela.
 const Api = (() => {
   const BASE = "https://dummyjson.com/products";
+  const LIMITE = 20;
   const CAMPOS = "title,price,discountPercentage,category,brand,rating,stock,thumbnail";
 
   class ErroApi extends Error {}
@@ -21,11 +22,13 @@ const Api = (() => {
   }
 
   async function pedirLista(caminho, parametros, sinal) {
-    const { products, total } = await pedir(caminho, { ...parametros, select: CAMPOS }, sinal);
-    return { produtos: products, total };
+    const { products, total } = await pedir(caminho, { ...parametros, limit: LIMITE, select: CAMPOS }, sinal);
+    // O corte garante o limite mesmo se a API ignorar o "limit".
+    return { produtos: products.slice(0, LIMITE), total };
   }
 
   return {
+    LIMITE,
     ErroApi,
     listar: (sinal) => pedirLista("", {}, sinal),
     porId: (id, sinal) => pedir(`/${id}`, {}, sinal),
