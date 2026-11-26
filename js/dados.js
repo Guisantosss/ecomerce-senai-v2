@@ -26,5 +26,58 @@ const CATEGORIAS = {
   groceries: { nome: "Mercado", cor: "verde" },
 };
 
+// Palavras em português e o que a API entende: uma categoria ou um termo em inglês.
+const PALAVRAS = {
+  celular: "smartphones",
+  telefone: "smartphones",
+  acessorio: "mobile-accessories",
+  notebook: "laptops",
+  computador: "laptops",
+  perfume: "fragrances",
+  maquiagem: "beauty",
+  beleza: "beauty",
+  movel: "furniture",
+  moveis: "furniture",
+  mesa: "furniture",
+  joia: "womens-jewellery",
+  carro: "vehicle",
+  moto: "motorcycle",
+  cozinha: "kitchen-accessories",
+  decoracao: "home-decoration",
+  esporte: "sports-accessories",
+  bola: "sports-accessories",
+  comida: "groceries",
+  mercado: "groceries",
+  blusa: "tops",
+  relogio: "watch",
+  tenis: "shoes",
+  sapato: "shoes",
+  camisa: "shirt",
+  vestido: "dress",
+  bolsa: "bag",
+  oculos: "sunglasses",
+  batom: "lipstick",
+  fone: "headphones",
+  carregador: "charger",
+  cama: "bed",
+  cadeira: "chair",
+  faca: "knife",
+  suco: "juice",
+  carne: "meat",
+  maca: "apple",
+  leite: "milk",
+  ovo: "egg",
+  arroz: "rice",
+  brinco: "earring",
+};
+
+// "Relógios" vira "relogio" e depois "watch". Palavra desconhecida volta como foi digitada.
+function traduzir(texto) {
+  const palavra = texto.trim().toLowerCase().normalize("NFD").replace(/\p{M}/gu, "");
+  const formas = [palavra, palavra.replace(/s$/, ""), palavra.replace(/es$/, "")];
+  const conhecida = formas.find((forma) => Object.hasOwn(PALAVRAS, forma));
+  return conhecida ? PALAVRAS[conhecida] : texto.trim();
+}
+
 // Permite usar este arquivo nos testes.
-if (typeof module !== "undefined") module.exports = { CATEGORIAS };
+if (typeof module !== "undefined") module.exports = { CATEGORIAS, PALAVRAS, traduzir };

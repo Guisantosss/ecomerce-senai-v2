@@ -22,7 +22,11 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 [hidden] { display: none !important; }
-html { scrollbar-gutter: stable; }
+html { scroll-padding-top: 16px; scrollbar-gutter: stable; }
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
 
 body {
   margin: 0;
