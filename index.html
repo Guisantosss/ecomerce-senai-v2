@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gôndola: catálogo de produtos</title>
+  <meta name="description" content="Catálogo de produtos feito com a API DummyJSON.">
+  <link rel="icon" href="img/icone.svg">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <header class="largura">
+    <h1 class="logo">Gôndola</h1>
+  </header>
+
+  <main class="largura">
+    <p id="situacao" class="situacao" role="status"></p>
+    <ul id="prateleira" class="prateleira"></ul>
+
+    <section id="falha" class="aviso" hidden>
+      <h2>Os produtos não carregaram</h2>
+      <p>Confira sua internet e tente de novo.</p>
+      <button type="button" class="botao">Tentar de novo</button>
+    </section>
+  </main>
+
+  <dialog id="detalhes" class="detalhes" aria-label="Detalhes do produto" closedby="any">
+    <form method="dialog"><button class="fechar" aria-label="Fechar">×</button></form>
+    <div id="detalhes-corpo"></div>
+  </dialog>
+
+  <template id="modelo-vazio"><li class="card-vazio"></li></template>
+
+  <template id="modelo-card">
+    <li class="card">
+      <div class="palco"><img alt="" width="300" height="300"><span class="desconto"></span></div>
+      <h2 class="nome"></h2>
+      <p class="marca"></p>
+      <p class="preco">
+        <span class="antes"><span class="so-leitor">De </span><s></s><span class="so-leitor"> por </span></span>
+        <strong class="agora"></strong>
+      </p>
+      <p class="selos"><span class="nota"></span><span class="estoque"></span></p>
+      <button type="button" class="botao">Ver detalhes</button>
+    </li>
+  </template>
+
+  <template id="modelo-detalhes">
+    <article class="ficha">
+      <div class="palco"><img alt="" width="1000" height="1000"><span class="desconto"></span></div>
+      <div class="ficha-texto">
+        <p class="marca"></p>
+        <h2 class="nome"></h2>
+        <p class="preco">
+          <span class="antes"><span class="so-leitor">De </span><s></s><span class="so-leitor"> por </span></span>
+          <strong class="agora"></strong>
+        </p>
+        <p class="descricao" lang="en"></p>
+        <p class="selos"><span class="nota"></span><span class="estoque"></span></p>
+        <p class="codigo"></p>
+      </div>
+    </article>
+  </template>
+
+  <script src="js/api.js"></script>
+  <script src="js/dados.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
