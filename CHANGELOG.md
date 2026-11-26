@@ -1,5 +1,13 @@
 # Histórico de versões
 
+## 0.4.0: Epic 04 (26/11/2026)
+
+- Carrossel animado de destaques.
+- Formulário de busca de produtos.
+- Busca no JavaScript, entendendo palavras em português.
+- Vitrine de abertura e animações para mais impacto visual.
+- Correção: menu e cabeçalho cabem em telas pequenas.
+
 ## 0.3.0: Epic 03 (26/11/2026)
 
 - Cabeçalho com menu e chamada.
