@@ -2,7 +2,7 @@
 
 Catálogo de produtos feito com HTML, CSS e JavaScript puro. Os dados vêm da API pública [DummyJSON](https://dummyjson.com/docs/products).
 
-- **Versão:** 0.3.0 ([histórico](CHANGELOG.md))
+- **Versão:** 0.4.0 ([histórico](CHANGELOG.md))
 - **Site:** https://guisantosss.github.io/ecomerce-senai-v2/
 - **Código:** https://github.com/Guisantosss/ecomerce-senai-v2
 - **Equipe:** G Santos e Amaral
@@ -80,6 +80,42 @@ Com Node 22 ou mais novo, rode `npm test`. Os casos estão em [docs/teste-da-api
 | `docs/git-flow.md` | Como a equipe usa as branches |
 | `docs/teste-da-api.md` | Teste da API |
 
+## O que o site faz
+
+- Mostra 20 produtos em cards, com foto, preço com desconto, nota e estoque.
+- Cada grupo de categorias tem uma cor.
+- Abre os detalhes de um produto, consultando a API pelo código dele.
+- Avisa quando a API não responde.
+- Cabeçalho e rodapé que se ajustam ao tamanho da tela.
+- Carrossel de destaques que troca sozinho, com botões para avançar, voltar e pausar.
+- Busca por nome, entendendo palavras comuns em português.
+- Vitrine de abertura com produtos na prateleira.
+
+## Como abrir
+
+Acesse o site ou dê dois cliques em `index.html`. É preciso ter internet.
+
+Para usar um servidor local, com Python instalado, rode `npm start` e acesse http://localhost:5500.
+
+## Como testar
+
+Com Node 22 ou mais novo, rode `npm test`. Os casos estão em [docs/teste-da-api.md](docs/teste-da-api.md).
+
+## Arquivos
+
+| Arquivo | Função |
+|---|---|
+| `index.html` | Estrutura da página |
+| `css/estilo.css` | Visual |
+| `js/api.js` | Consultas à API e limite de 20 produtos |
+| `js/dados.js` | Categorias, cores e palavras em português |
+| `js/app.js` | Cards, busca e detalhes |
+| `tests/api.test.js` | Testes da API |
+| `docs/git-flow.md` | Como a equipe usa as branches |
+| `docs/teste-da-api.md` | Teste da API |
+| `js/carrossel.js` | Carrossel de destaques |
+| `img/` | Fotos da vitrine e do carrossel |
+
 ## Como contribuir
 
 O projeto usa git-flow. Leia [docs/git-flow.md](docs/git-flow.md) antes do primeiro commit.
@@ -87,3 +123,4 @@ O projeto usa git-flow. Leia [docs/git-flow.md](docs/git-flow.md) antes do prime
 ## Limitações
 
 - Os produtos vêm em inglês e com preços em dólar, como a API envia.
+- A busca entende só as palavras em português listadas em `js/dados.js`.
