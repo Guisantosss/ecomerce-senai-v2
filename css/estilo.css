@@ -96,7 +96,7 @@ button { border: 0; font: inherit; cursor: pointer; }
 .barra a:hover { background: rgb(255 255 255 / 0.16); }
 
 .topo-grade { display: grid; gap: 28px; }
-.chamada { padding-block: 16px 40px; }
+.chamada { padding-top: 16px; }
 
 .topo h1 {
   max-width: 14ch;
@@ -144,14 +144,51 @@ button { border: 0; font: inherit; cursor: pointer; }
 
 .busca button:hover { background: var(--tinta); color: var(--papel); }
 
+/* Vitrine: produtos em nichos coloridos, apoiados na prateleira amarela. */
+.nichos { display: flex; align-items: flex-end; gap: 10px; height: 180px; }
+
+.nicho {
+  display: flex;
+  flex: 1;
+  align-items: flex-end;
+  justify-content: center;
+  height: 100%;
+  padding: 0;
+  border-radius: 999px 999px 0 0;
+  background: var(--cor);
+}
+
+.nicho:nth-child(odd) { height: 82%; }
+
+.nicho img {
+  width: auto;
+  max-width: 78%;
+  height: 66%;
+  object-fit: contain;
+  object-position: bottom;
+  transition: transform 0.2s;
+  animation: pousar 0.6s cubic-bezier(0.3, 1.4, 0.5, 1) backwards;
+}
+
+.nicho:nth-child(2) img { animation-delay: 0.1s; }
+.nicho:nth-child(3) img { animation-delay: 0.2s; }
+.nicho:nth-child(4) img { animation-delay: 0.3s; }
+.nicho:hover img { transform: translateY(-8px); }
+
+@keyframes pousar {
+  from { opacity: 0; transform: translateY(-60px); }
+}
+
 @media (min-width: 700px) {
   .barra { padding-block: 24px; }
   .barra a { padding-inline: 16px; }
-  .chamada { padding-block: 24px 56px; }
+  .chamada { padding-top: 24px; }
 }
 
 @media (min-width: 1000px) {
   .topo-grade { grid-template-columns: 1fr 1.05fr; align-items: end; gap: 40px; }
+  .chamada { padding-bottom: 48px; }
+  .nichos { gap: 16px; height: 360px; }
 }
 
 /* Carrossel */
@@ -253,7 +290,8 @@ button { border: 0; font: inherit; cursor: pointer; }
   background: var(--cor, var(--neutro));
 }
 
-.palco img { width: 84%; height: auto; }
+.palco img { width: 84%; height: auto; transition: transform 0.2s; }
+.card:hover .palco img { transform: scale(1.07); }
 .palco:not(:has(img))::before { content: "Sem foto"; color: var(--suave); }
 
 .desconto {
