@@ -31,6 +31,8 @@ const Api = (() => {
     LIMITE,
     ErroApi,
     listar: (sinal) => pedirLista("", {}, sinal),
+    buscar: (termo, sinal) => pedirLista("/search", { q: termo }, sinal),
+    porCategoria: (categoria, sinal) => pedirLista(`/category/${categoria}`, {}, sinal),
     porId: (id, sinal) => pedir(`/${id}`, {}, sinal),
   };
 })();
