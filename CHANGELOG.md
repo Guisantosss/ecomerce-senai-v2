@@ -1,5 +1,9 @@
 # Histórico de versões
 
+## 0.4.1: Correção (26/11/2026)
+
+- Correção: o README repetia seções.
+
 ## 0.4.0: Epic 04 (26/11/2026)
 
 - Carrossel animado de destaques.
