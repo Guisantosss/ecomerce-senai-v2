@@ -82,11 +82,11 @@ button { border: 0; font: inherit; cursor: pointer; }
 .topo { border-bottom: 14px solid var(--amarelo); background: var(--azul); color: var(--papel); }
 .topo :focus-visible { outline-color: var(--amarelo); box-shadow: none; }
 
-.barra { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 16px; }
-.barra nav { display: flex; gap: 4px; }
+.barra { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 16px; padding-block: 16px; }
+.barra nav { display: flex; gap: 2px; margin-right: -10px; }
 
 .barra a {
-  padding: 8px 12px;
+  padding: 8px 10px;
   border-radius: 999px;
   color: var(--papel);
   font-weight: 600;
@@ -181,6 +181,7 @@ button { border: 0; font: inherit; cursor: pointer; }
 
 @media (min-width: 700px) {
   .barra { padding-block: 24px; }
+  .barra nav { margin-right: -16px; }
   .barra a { padding-inline: 16px; }
   .chamada { padding-top: 24px; }
 }
@@ -221,7 +222,7 @@ button { border: 0; font: inherit; cursor: pointer; }
 .slide img {
   justify-self: center;
   width: auto;
-  height: 200px;
+  height: 180px;
   transition: opacity 0.5s, transform 0.5s;
 }
 
