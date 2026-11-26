@@ -2,6 +2,10 @@
 
 Catálogo de produtos feito com HTML, CSS e JavaScript puro. Os dados vêm da API pública [DummyJSON](https://dummyjson.com/docs/products).
 
+- **Site:** https://guisantosss.github.io/ecomerce-senai-v2/
+- **Código:** https://github.com/Guisantosss/ecomerce-senai-v2
+- **Equipe:** G Santos e Amaral
+
 ## Etapas
 
 O trabalho está dividido em epics. Cada epic vira uma versão.
